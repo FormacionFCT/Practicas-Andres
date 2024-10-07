@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:app_inventario_andres_navarro"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Lista de Productos" Height="800" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!-- DataGrid para mostrar los empleados -->
+        <!-- Las columnas no se generarán automáticamente -->
+        <!-- El DataGrid se colocará en la primera fila del Grid -->
+        <!-- No permite la edición de las celdas dentro del DataGrid -->
+        <!-- Solo se puede seleccionar una fila a la vez -->
+
+        <DataGrid x:Name="DataGridXAML" AutoGenerateColumns="False" Grid.Row="0" Margin="10" IsReadOnly="True" SelectionMode="Single">
+
+            <!--Color Fuente / Estilo de Columna-->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Turquoise"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="FontFamily" Value="Ariel Black"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <!--Texto Cabecera Columna & Bindings -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id " Width="80"/>
+                <DataGridTextColumn Header="Nombre"  Width="150"/>
+                <DataGridTextColumn Header="Cantidad"  Width="80"/>
+                <DataGridTextColumn Header="Precio"  Width="80"/>
+                <DataGridTextColumn Header="Descripción" Width="*"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+        <!-- Botones CRUD en la parte inferior -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Crear" Width="100" Margin="5"  />
+            <Button Content="Leer" Width="100" Margin="5" />
+            <Button Content="Actualizar" Width="100" Margin="5"  />
+            <Button Content="Eliminar" Width="100" Margin="5" />
+        </StackPanel>
 
     </Grid>
 </Window>
