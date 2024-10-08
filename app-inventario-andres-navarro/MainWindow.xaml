@@ -34,7 +34,7 @@
 
             <!--Texto Cabecera Columna & Bindings -->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id " Width="80"/>
+                <DataGridTextColumn Header="Id " Width="90"/>
                 <DataGridTextColumn Header="Nombre"  Width="150"/>
                 <DataGridTextColumn Header="Cantidad"  Width="80"/>
                 <DataGridTextColumn Header="Precio"  Width="80"/>
