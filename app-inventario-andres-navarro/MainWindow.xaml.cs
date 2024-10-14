@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using app_inventario_andres_navarro.Modelos;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,18 @@ namespace app_inventario_andres_navarro
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        // Declaro el ViewModel como campo de clase
+        private ViewModel viewModel;
+
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // Instanciamos el ViewModel y lo asignamos como DataContext
+            viewModel = new ViewModel();
+            this.DataContext = viewModel;
         }
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace app_inventario_andres_navarro.Modelos
 {
-    class Poducto
+    public class Producto
     {
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; }
-        public string Cantidad { get; set; }
+        public int Cantidad { get; set; }
         public string Precio { get; set; }
         public string Descripcion { get; set; }
     }

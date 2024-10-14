@@ -17,7 +17,7 @@
         <!-- No permite la edición de las celdas dentro del DataGrid -->
         <!-- Solo se puede seleccionar una fila a la vez -->
 
-        <DataGrid x:Name="DataGridXAML" AutoGenerateColumns="False" Grid.Row="0" Margin="10" IsReadOnly="True" SelectionMode="Single">
+        <DataGrid x:Name="DataGridXAML" ItemsSource="{Binding Productos}" AutoGenerateColumns="False" Grid.Row="0" Margin="10" IsReadOnly="True" SelectionMode="Single">
 
             <!--Color Fuente / Estilo de Columna-->
             <DataGrid.Resources>
