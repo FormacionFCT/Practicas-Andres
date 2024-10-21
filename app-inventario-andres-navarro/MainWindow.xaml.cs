@@ -30,5 +30,18 @@ namespace app_inventario_andres_navarro
             viewModel = new ViewModel();
             this.DataContext = viewModel;
         }
+
+        // Crear un nuevo empleado
+        private void CrearCliente(object sender, RoutedEventArgs e)
+        {
+            // Añadimos un nuevo empleado
+            Agregarproducto agregarproducto = new Agregarproducto(viewModel.Productos);
+            agregarproducto.ShowDialog(); // Muestra la ventana como un diálogo modal
+
+            DataGridXAML.Items.Refresh();
+
+            // Deseleccionar el empleado 
+            DataGridXAML.SelectedItem = null;
+        }
     }
 }

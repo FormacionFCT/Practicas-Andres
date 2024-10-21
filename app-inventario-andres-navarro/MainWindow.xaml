@@ -46,7 +46,7 @@
 
         <!-- Botones CRUD en la parte inferior -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Crear" Width="100" Margin="5"  />
+            <Button Content="Crear" Width="100" Margin="5" Click="CrearCliente" />
             <Button Content="Leer" Width="100" Margin="5" />
             <Button Content="Actualizar" Width="100" Margin="5"  />
             <Button Content="Eliminar" Width="100" Margin="5" />

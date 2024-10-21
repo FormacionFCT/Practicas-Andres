@@ -59,5 +59,3 @@ namespace app_inventario_andres_navarro
         }
     }
 }
-    }
-}
