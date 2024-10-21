@@ -14,16 +14,16 @@
             <TextBlock Text="Nombre:" Margin="10,0,10,0"/>
             <TextBox x:Name="txtNombre"  Margin="10,0,10,10"/>
 
-            <TextBlock Text="Dirección:" Margin="10,0,10,0"/>
-            <TextBox x:Name="txtDireccion" Margin="10,0,10,10"/>
+            <TextBlock Text="Cantidad:" Margin="10,0,10,0"/>
+            <TextBox x:Name="txtCantidad" Margin="10,0,10,10"/>
 
-            <TextBlock Text="Ciudad:" Margin="10,0,10,0"/>
-            <TextBox x:Name="txtCiudad" Margin="10,0,10,10"/>
+            <TextBlock Text="Precio:" Margin="10,0,10,0"/>
+            <TextBox x:Name="txtPrecio" Margin="10,0,10,10"/>
 
-            <TextBlock Text="País:" Margin="10,0,10,0"/>
-            <TextBox x:Name="txtPais" Margin="10,0,10,10"/>
+            <TextBlock Text="Descripcion:" Margin="10,0,10,0"/>
+            <TextBox x:Name="txtDescripcion" Margin="10,0,10,10"/>
 
-            <Button Content="Agregar Prodcuto" Background="AliceBlue"  Click="Agregar_Click" FontWeight="Bold" FontStyle="Italic" Margin="10,0,10,10" />
+            <Button Content="Agregar Prodcuto" Background="AliceBlue" Click="Agregar_Click" FontWeight="Bold" FontStyle="Italic" Margin="10,0,10,10" />
 
         </StackPanel>
 
