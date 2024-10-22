@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:app_inventario_andres_navarro"
         mc:Ignorable="d"
-        Title="Lista de Productos" Height="800" Width="800">
+        Title="Lista de Productos" Height="800" Width="800" Icon="Imagenes/interfaz.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -46,11 +46,33 @@
 
         <!-- Botones CRUD en la parte inferior -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Crear" Width="100" Margin="5" Click="CrearCliente" />
-            <Button Content="Leer" Width="100" Margin="5" />
-            <Button Content="Actualizar" Width="100" Margin="5"  />
-            <Button Content="Eliminar" Width="100" Margin="5" />
+            <Button Width="100" Height="50" Margin="5" BorderBrush="Black" Click="CrearCliente">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/create.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <TextBlock Text="Crear" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Width="100" Height="50" Margin="5" BorderBrush="Black">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/read.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <TextBlock Text="Leer" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Width="100" Height="50" Margin="5" BorderBrush="Black">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/update.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <TextBlock Text="Actualizar" VerticalAlignment="Center"/>
+                </StackPanel>
+
+            </Button>
+            <Button  Width="100" Height="50" Margin="5" BorderBrush="Black" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/papelera.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <TextBlock Text="Eliminar" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
+
 
     </Grid>
 </Window>
