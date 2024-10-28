@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Imagenes\cliente.PNG" />
     <None Remove="Imagenes\create.png" />
     <None Remove="Imagenes\Editar.png" />
@@ -18,9 +22,15 @@
     <None Remove="Imagenes\read.png" />
     <None Remove="Imagenes\search.png" />
     <None Remove="Imagenes\update.png" />
+    <None Remove="productos.db" />
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="MainWindow.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="AssemblyInfo.cs" />
     <Content Include="Imagenes\cliente.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -45,6 +55,14 @@
     <Content Include="Imagenes\update.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="MainWindow.xaml" />
+    <Content Include="productos.db">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
   </ItemGroup>
 
 </Project>
