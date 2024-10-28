@@ -30,7 +30,7 @@ namespace app_inventario_andres_navarro.Modelos
             Productos.Add(nuevoProducto);
         }
 
-        public void EditarEmpleado(Producto producto)
+        public void EditarProducto(Producto producto)
         {
             bool exito = _conexion.Editar(producto);
 
@@ -55,8 +55,8 @@ namespace app_inventario_andres_navarro.Modelos
             }
         }
 
-        // Método para eliminar un empleado
-        public void EliminarEmpleado(Producto producto)
+        // Método para eliminar un producto
+        public void EliminarProducto(Producto producto)
         {
             bool exito = _conexion.Eliminar(producto);
             if (exito)

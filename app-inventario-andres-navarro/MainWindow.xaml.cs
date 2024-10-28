@@ -6,9 +6,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace app_inventario_andres_navarro
 {
@@ -24,6 +26,7 @@ namespace app_inventario_andres_navarro
 
         public MainWindow()
         {
+
             InitializeComponent();
 
             // Instanciamos el ViewModel y lo asignamos como DataContext
@@ -31,13 +34,13 @@ namespace app_inventario_andres_navarro
             this.DataContext = viewModel;
         }
 
-        // Crear un nuevo empleado
-        private void CrearCliente(object sender, RoutedEventArgs e)
+        // Crear un nuevo producto
+        private void CrearProducto(object sender, RoutedEventArgs e)
         {
             // Añadimos un nuevo empleado
-            Agregarproducto agregarproducto = new Agregarproducto(viewModel.Productos);
+            Agregarproducto agregarproducto = new Agregarproducto(viewModel.Productos, viewModel._conexion);
             agregarproducto.ShowDialog(); // Muestra la ventana como un diálogo modal
-
+                        
             DataGridXAML.Items.Refresh();
 
             // Deseleccionar el empleado 

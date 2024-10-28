@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Remove="MainWindow.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="AssemblyInfo.cs" />
     <Content Include="Imagenes\cliente.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -55,7 +51,6 @@
     <Content Include="Imagenes\update.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MainWindow.xaml" />
     <Content Include="productos.db">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>

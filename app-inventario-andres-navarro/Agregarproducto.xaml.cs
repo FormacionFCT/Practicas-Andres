@@ -22,11 +22,13 @@ namespace app_inventario_andres_navarro
     public partial class Agregarproducto : Window
     {
         private ObservableCollection<Producto> productoList;
+        private Conexion conexion;
 
-        public Agregarproducto(ObservableCollection<Producto> productos)
+        public Agregarproducto(ObservableCollection<Producto> productos, Conexion conexion)
         {
             InitializeComponent();
             this.productoList = productos;
+            this.conexion = conexion;
         }
 
         private void Agregar_Click(object sender, RoutedEventArgs e)
@@ -51,7 +53,7 @@ namespace app_inventario_andres_navarro
                 Descripcion = txtDescripcion.Text
             };
 
-
+            conexion.AddProducto(nuevoProducto);
 
             productoList.Add(nuevoProducto);
             MessageBox.Show("Producto agregado con éxito!");            

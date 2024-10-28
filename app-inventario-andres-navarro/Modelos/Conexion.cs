@@ -9,7 +9,7 @@ namespace app_inventario_andres_navarro.Modelos
 {
     public class Conexion
     {
-        private string conexionString = "Data Source=productos.db;Version=3;";
+        private string conexionString = "Data Source=C:\\Users\\andre\\source\\repos\\Practicas-Andres\\app-inventario-andres-navarro\\productos.db;Version=3;";
 
         public Conexion()
         {
@@ -79,7 +79,7 @@ namespace app_inventario_andres_navarro.Modelos
             using (var connection = new SQLiteConnection(conexionString))
             {
                 connection.Open();
-                string query = "Update Producto set Nombre = @nombre, Cantidad = @cantidad, Precio = @precio, Descripcion = @descripcion, Pais = @pais where Id = @id";
+                string query = "Update Producto set Nombre = @nombre, Cantidad = @cantidad, Precio = @precio, Descripcion = @descripcion where Id = @id";
 
                 SQLiteCommand cmd = new SQLiteCommand(query, connection);
                 cmd.Parameters.Add(new SQLiteParameter("@id", obj.IdProducto));
@@ -104,13 +104,14 @@ namespace app_inventario_andres_navarro.Modelos
             using (var connection = new SQLiteConnection(conexionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Producto (Nombre, Cantidad, Precio, Descripcion) VALUES (@nombre, @cantidad, @precio, @descripcion)";
+                string query = "INSERT INTO Producto (Id, Nombre, Cantidad, Precio, Descripcion) VALUES (@id, @nombre, @cantidad, @precio, @descripcion)";
                 using (var command = new SQLiteCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@id", producto.IdProducto);
                     command.Parameters.AddWithValue("@nombre", producto.NombreProducto);
-                    command.Parameters.AddWithValue("@direccion", producto.Cantidad);
-                    command.Parameters.AddWithValue("@ciudad", producto.Precio);
-                    command.Parameters.AddWithValue("@pais", producto.Descripcion);
+                    command.Parameters.AddWithValue("@cantidad", producto.Cantidad);
+                    command.Parameters.AddWithValue("@precio", producto.Precio);
+                    command.Parameters.AddWithValue("@descripcion", producto.Descripcion);
                     command.CommandType = System.Data.CommandType.Text;
                     command.ExecuteNonQuery();
                 }
