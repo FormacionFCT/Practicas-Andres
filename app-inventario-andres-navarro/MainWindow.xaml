@@ -37,7 +37,7 @@
                 <DataGridTextColumn Header="Id" Binding="{Binding IdProducto}" Width="80"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding NombreProducto}" Width="150"/>
                 <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="80"/>
-                <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" Width="80"/>
+                <DataGridTextColumn Header="Precio(€)" Binding="{Binding Precio}" Width="80"/>
                 <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
             </DataGrid.Columns>
 

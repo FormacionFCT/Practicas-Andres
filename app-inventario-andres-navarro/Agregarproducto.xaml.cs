@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,8 +59,10 @@ namespace app_inventario_andres_navarro
                 return;
             }
 
+            // Convertir y validar Precio
+            string precioInput = txtPrecio.Text.Replace(',', '.'); // Reemplazar la coma por un punto
             float precio;
-            if(!float.TryParse(txtPrecio.Text, out precio))
+            if(!float.TryParse(precioInput, NumberStyles.Any, CultureInfo.InvariantCulture, out precio))
             {
                 MessageBox.Show("El precio debe ser un número decimal válido");
                 return;
