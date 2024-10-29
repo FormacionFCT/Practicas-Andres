@@ -9,7 +9,7 @@ namespace app_inventario_andres_navarro.Modelos
 {
     public class Conexion
     {
-        private string conexionString = "Data Source=C:\\Users\\andre\\source\\repos\\Practicas-Andres\\app-inventario-andres-navarro\\productos.db;Version=3;";
+        private string conexionString = "Data Source=productos.db;Version=3;";
 
         public Conexion()
         {
