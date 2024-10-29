@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace app_inventario_andres_navarro.Modelos
 {
@@ -140,6 +141,21 @@ namespace app_inventario_andres_navarro.Modelos
             return respuesta;
         }
 
+        public bool existeID(int idProducto)
+        {
+          
+                using (var connection = new SQLiteConnection(conexionString))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(1) FROM Producto  WHERE Id = @id";
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id",idProducto);
+                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
+                }
+            }
+        }
+           
+        
     }
-
 }

@@ -44,15 +44,38 @@ namespace app_inventario_andres_navarro
                 return; // No continúa si hay campos vacíos
             }
 
+            int idProducto;
+            if (!int.TryParse(txtId.Text, out idProducto))
+            {
+                MessageBox.Show("La ID debe ser un número entero");
+                return;
+            }
+
+            int cantidad;
+            if (!int.TryParse(txtCantidad.Text, out cantidad))
+            {
+                MessageBox.Show("La Cantidad debe ser un número entero");
+                return;
+            }
+
+            //Verifica si el producto con la ID ya existe
+            if (conexion.existeID(idProducto))
+            {
+                MessageBox.Show("La ID del producto ya existe.");
+                return;
+            }
+
+
             var nuevoProducto = new Producto
             {
-                IdProducto = int.Parse(txtId.Text),
+                IdProducto = idProducto,
                 NombreProducto = txtNombre.Text,
-                Cantidad = int.Parse(txtCantidad.Text),
+                Cantidad = cantidad,
                 Precio = txtPrecio.Text,
                 Descripcion = txtDescripcion.Text
             };
 
+          
             conexion.AddProducto(nuevoProducto);
 
             productoList.Add(nuevoProducto);
