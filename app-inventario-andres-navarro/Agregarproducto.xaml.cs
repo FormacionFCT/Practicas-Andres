@@ -58,6 +58,13 @@ namespace app_inventario_andres_navarro
                 return;
             }
 
+            float precio;
+            if(!float.TryParse(txtPrecio.Text, out precio))
+            {
+                MessageBox.Show("El precio debe ser un número decimal válido");
+                return;
+            }
+
             //Verifica si el producto con la ID ya existe
             if (conexion.existeID(idProducto))
             {
@@ -65,13 +72,12 @@ namespace app_inventario_andres_navarro
                 return;
             }
 
-
             var nuevoProducto = new Producto
             {
                 IdProducto = idProducto,
                 NombreProducto = txtNombre.Text,
                 Cantidad = cantidad,
-                Precio = txtPrecio.Text,
+                Precio = precio,
                 Descripcion = txtDescripcion.Text
             };
 

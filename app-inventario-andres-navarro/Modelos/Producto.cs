@@ -11,7 +11,7 @@ namespace app_inventario_andres_navarro.Modelos
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; }
         public int Cantidad { get; set; }
-        public string Precio { get; set; }
+        public float Precio { get; set; }
         public string Descripcion { get; set; }
     }
 }

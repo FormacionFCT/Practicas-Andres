@@ -30,7 +30,7 @@ namespace app_inventario_andres_navarro.Modelos
                     Id INTEGER PRIMARY KEY UNIQUE,
                     Nombre TEXT NOT NULL,
                     Cantidad INTEGER NOT NULL,
-                    Precio TEXT NOT NULL,
+                    Precio REAL NOT NULL,
                     Descripcion TEXT NOT NULL
                 );";
                 using (var command = new SQLiteCommand(query, conexion))
@@ -60,7 +60,7 @@ namespace app_inventario_andres_navarro.Modelos
                                 IdProducto = int.Parse(dr["Id"].ToString()),
                                 NombreProducto = dr["Nombre"].ToString(),
                                 Cantidad = int.Parse(dr["Cantidad"].ToString()),
-                                Precio = dr["Precio"].ToString(),
+                                Precio = float.Parse(dr["Precio"].ToString()),
                                 Descripcion = dr["Descripcion"].ToString(),
                             });
                         }
