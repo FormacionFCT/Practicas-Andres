@@ -47,6 +47,27 @@ namespace app_inventario_andres_navarro
             DataGridXAML.SelectedItem = null;
         }
 
+        // Actualizar un producto seleccionado
+        private void Actualizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataGridXAML.SelectedItem is Producto productoSeleccionado)
+            {
+                Editar editarWindow = new Editar(productoSeleccionado, viewModel.Productos);
+                editarWindow.ShowDialog();
+
+                DataGridXAML.Items.Refresh();
+
+                // Deseleccionar el empleado 
+                DataGridXAML.SelectedItem = null;
+            }
+
+            else
+            {
+                MessageBox.Show("Por favor selecciona un empleado.");
+            }
+        }
+
+
         private void Eliminar_Click(object sender, RoutedEventArgs e)
         {
             if(DataGridXAML.SelectedItem is Producto productoSeleccionado)
