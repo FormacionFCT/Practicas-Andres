@@ -46,5 +46,29 @@ namespace app_inventario_andres_navarro
             // Deseleccionar el empleado 
             DataGridXAML.SelectedItem = null;
         }
+
+        private void Eliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if(DataGridXAML.SelectedItem is Producto productoSeleccionado)
+            {
+                // Mostrar un mensaje de confirmación
+                MessageBoxResult resultado = MessageBox.Show(
+                    $"¿Estás seguro de que quieres eliminar el producto {productoSeleccionado.NombreProducto}?",
+                    "Confirmar eliminación",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+
+                // Si el usuario selecciona "Sí", procedemos con la eliminación
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    viewModel.EliminarProducto(productoSeleccionado);
+                    DataGridXAML.Items.Refresh();
+
+                    // Deseleccionar el empleado después de eliminar
+                    DataGridXAML.SelectedItem = null;
+                }
+
+            }
+        }
     }
 }

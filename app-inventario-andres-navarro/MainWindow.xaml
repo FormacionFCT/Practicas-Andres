@@ -65,7 +65,7 @@
                 </StackPanel>
 
             </Button>
-            <Button  Width="100" Height="50" Margin="5" BorderBrush="Black" >
+            <Button  Width="100" Height="50" Margin="5" BorderBrush="Black" Click="Eliminar_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Imagenes/papelera.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
                     <TextBlock Text="Eliminar" VerticalAlignment="Center"/>
