@@ -47,6 +47,29 @@ namespace app_inventario_andres_navarro
             DataGridXAML.SelectedItem = null;
         }
 
+
+        // Leer (Seleccionar) un empleado
+        private void Leer_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataGridXAML.SelectedItem is Producto productoSeleccionado)
+            {
+                MessageBox.Show($"ID: {productoSeleccionado.IdProducto}\n" +
+                                $"Nombre: {productoSeleccionado.NombreProducto}\n" +
+                                $"Dirección: {productoSeleccionado.Cantidad}\n" +
+                                $"Ciudad: {productoSeleccionado.Precio}\n" +
+                                $"País: {productoSeleccionado.Descripcion}", "Detalles del Producto");
+
+                DataGridXAML.Items.Refresh();
+
+                // Deseleccionar el empleado 
+                DataGridXAML.SelectedItem = null;
+            }
+            else
+            {
+                MessageBox.Show("Por favor selecciona un empleado.");
+            }
+        }
+
         // Actualizar un producto seleccionado
         private void Actualizar_Click(object sender, RoutedEventArgs e)
         {
@@ -63,7 +86,7 @@ namespace app_inventario_andres_navarro
 
             else
             {
-                MessageBox.Show("Por favor selecciona un empleado.");
+                MessageBox.Show("Por favor selecciona un producto.");
             }
         }
 
