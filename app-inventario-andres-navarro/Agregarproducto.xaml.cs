@@ -30,6 +30,7 @@ namespace app_inventario_andres_navarro
             InitializeComponent();
             this.productoList = productos;
             this.conexion = conexion;
+                     
         }
 
         private void Agregar_Click(object sender, RoutedEventArgs e)
@@ -43,44 +44,14 @@ namespace app_inventario_andres_navarro
             {
                 MessageBox.Show("Por favor completa todos los campos.");
                 return; // No continúa si hay campos vacíos
-            }
-
-            int idProducto;
-            if (!int.TryParse(txtId.Text, out idProducto))
-            {
-                MessageBox.Show("La ID debe ser un número entero");
-                return;
-            }
-
-            int cantidad;
-            if (!int.TryParse(txtCantidad.Text, out cantidad))
-            {
-                MessageBox.Show("La Cantidad debe ser un número entero");
-                return;
-            }
-
-            // Convertir y validar Precio
-            string precioInput = txtPrecio.Text.Replace(',', '.'); // Reemplazar la coma por un punto
-            float precio;
-            if(!float.TryParse(precioInput, NumberStyles.Any, CultureInfo.InvariantCulture, out precio))
-            {
-                MessageBox.Show("El precio debe ser un número decimal válido");
-                return;
-            }
-
-            //Verifica si el producto con la ID ya existe
-            if (conexion.existeID(idProducto))
-            {
-                MessageBox.Show("La ID del producto ya existe.");
-                return;
-            }
+            }                      
 
             var nuevoProducto = new Producto
             {
-                IdProducto = idProducto,
+                IdProducto = int.Parse(txtId.Text),
                 NombreProducto = txtNombre.Text,
-                Cantidad = cantidad,
-                Precio = precio,
+                Cantidad = int.Parse(txtCantidad.Text),
+                Precio = float.Parse(txtPrecio.Text),
                 Descripcion = txtDescripcion.Text
             };
 
