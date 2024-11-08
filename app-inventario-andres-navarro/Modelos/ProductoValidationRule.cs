@@ -15,26 +15,44 @@ namespace app_inventario_andres_navarro.Modelos
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if (string.IsNullOrWhiteSpace(value as string))
-            {
-                return new ValidationResult(false, $"{Campo} es obligatorio.");
-            }
-
+            
             switch (Campo)
             {
-                case "Id":
+                case "IdProducto":                
+                    if (string.IsNullOrWhiteSpace(value.ToString()))
+                        return new ValidationResult(false, "El id es obligatorio.");
+                    if (!int.TryParse(value.ToString(), out int intValue))
+                        return new ValidationResult(false, "El id debe ser un número entero.");
+                    if (intValue <= 0 && intValue == 0)
+                        return new ValidationResult(false, "El id debe ser mayor que cero.");
+                    // Aquí se agrega la validación de ID único
+                    var productoExistente = productoList.FirstOrDefault(p => p.IdProducto == intValue);
+                    if (productoExistente != null)
+                        return new ValidationResult(false, "El ID ya existe.");
+
+                    break;
+
+                case "NombreProducto":
+                    if (string.IsNullOrWhiteSpace(value.ToString()))
+                        return new ValidationResult(false, "El nombre es obligatorio.");
+                    break;
+
+                case "Descripcion":
+                    if (string.IsNullOrWhiteSpace(value.ToString()))
+                        return new ValidationResult(false, "La descripción es obligatoria.");
+                    break;
+
                 case "Cantidad":
                     if (string.IsNullOrWhiteSpace(value.ToString()))
-                        return new ValidationResult(false, $"El {Campo} es obligatorio.");
-
-                    if (!int.TryParse(value.ToString(), out int intValue))
-                        return new ValidationResult(false, $"{Campo} debe ser un número entero.");
-                    if (intValue <= 0)
-                        return new ValidationResult(false, $"{Campo} debe ser mayor que cero.");
+                        return new ValidationResult(false, "El cantidad es obligatoria.");
+                    if (!int.TryParse(value.ToString(), out int intValuee))
+                        return new ValidationResult(false, "La cantidad debe ser un número entero.");
+                    if (intValuee <= 0 && intValuee == 0)
+                        return new ValidationResult(false, "La cantidad debe ser mayor que cero.");
                     break;
 
                 case "Precio":
-                    if (string.IsNullOrWhiteSpace(value.ToString()))
+                    if ( string.IsNullOrWhiteSpace(value.ToString()))
                         return new ValidationResult(false, "El precio es obligatorio.");
 
                     string precioInput = value.ToString().Replace(',', '.');

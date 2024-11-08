@@ -24,6 +24,7 @@ namespace app_inventario_andres_navarro
     {
         private ObservableCollection<Producto> productoList;
         private Conexion conexion;
+        
 
         public Agregarproducto(ObservableCollection<Producto> productos, Conexion conexion)
         {
@@ -31,6 +32,7 @@ namespace app_inventario_andres_navarro
             this.productoList = productos;
             this.conexion = conexion;
             this.DataContext = new Producto();
+
         }
 
         private void Agregar_Click(object sender, RoutedEventArgs e)
@@ -44,14 +46,14 @@ namespace app_inventario_andres_navarro
             {
                 MessageBox.Show("Por favor completa todos los campos.");
                 return; // No continúa si hay campos vacíos
-            }                      
+            }                     
 
             var nuevoProducto = new Producto
             {
                 IdProducto = int.Parse(txtId.Text),
                 NombreProducto = txtNombre.Text,
                 Cantidad = int.Parse(txtCantidad.Text),
-                Precio = float.Parse(txtPrecio.Text),
+                Precio = float.Parse(txtPrecio.Text, CultureInfo.InvariantCulture),
                 Descripcion = txtDescripcion.Text
             };
 
