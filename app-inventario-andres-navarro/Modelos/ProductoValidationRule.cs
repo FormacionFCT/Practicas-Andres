@@ -22,8 +22,11 @@ namespace app_inventario_andres_navarro.Modelos
 
             switch (Campo)
             {
-                case "IdProducto":
+                case "Id":
                 case "Cantidad":
+                    if (string.IsNullOrWhiteSpace(value.ToString()))
+                        return new ValidationResult(false, $"El {Campo} es obligatorio.");
+
                     if (!int.TryParse(value.ToString(), out int intValue))
                         return new ValidationResult(false, $"{Campo} debe ser un número entero.");
                     if (intValue <= 0)
@@ -31,7 +34,11 @@ namespace app_inventario_andres_navarro.Modelos
                     break;
 
                 case "Precio":
-                    if (!float.TryParse(value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out float floatValue))
+                    if (string.IsNullOrWhiteSpace(value.ToString()))
+                        return new ValidationResult(false, "El precio es obligatorio.");
+
+                    string precioInput = value.ToString().Replace(',', '.');
+                    if (!float.TryParse(precioInput, NumberStyles.Any, CultureInfo.InvariantCulture, out float floatValue))
                         return new ValidationResult(false, "Precio debe ser un número decimal válido.");
                     if (floatValue < 0)
                         return new ValidationResult(false, "Precio no puede ser negativo.");

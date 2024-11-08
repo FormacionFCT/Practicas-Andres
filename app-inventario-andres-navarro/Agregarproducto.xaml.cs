@@ -30,7 +30,7 @@ namespace app_inventario_andres_navarro
             InitializeComponent();
             this.productoList = productos;
             this.conexion = conexion;
-                     
+            this.DataContext = new Producto();
         }
 
         private void Agregar_Click(object sender, RoutedEventArgs e)

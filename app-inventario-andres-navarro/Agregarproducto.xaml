@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="ID:" Margin="10,0,10,0"/>
-            <TextBox x:Name="txtId" Margin="10,0,10,20">
+            <TextBox x:Name="txtId" Margin="10,0,10,0">
             <TextBox.Text>
                 <Binding Path="IdProducto" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -31,16 +31,53 @@
             </TextBox>
             
             <TextBlock Text="Nombre:" Margin="10,20,10,0"/>
-            <TextBox x:Name="txtNombre"  Margin="10,0,10,10"/>
+            <TextBox x:Name="txtNombre"  Margin="10,0,10,0"/>
+            
 
             <TextBlock Text="Cantidad:" Margin="10,20,10,0"/>
-            <TextBox x:Name="txtCantidad" Margin="10,0,10,10"/>
+            <TextBox x:Name="txtCantidad" Margin="10,0,10,0">
+                <TextBox.Text>
+                    <Binding Path="Cantidad" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validation:ProductoValidationRule Campo="Cantidad"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.HasError)}" Value="True">
+                                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                                <Setter Property="BorderBrush" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
 
             <TextBlock Text="Precio:" Margin="10,20,10,0"/>
-            <TextBox x:Name="txtPrecio" Margin="10,0,10,10"/>
+            <TextBox x:Name="txtPrecio" Margin="10,0,10,0">
+                <TextBox.Text>
+                    <Binding Path="Precio" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validation:ProductoValidationRule Campo="Precio"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.HasError)}" Value="True">
+                                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                                <Setter Property="BorderBrush" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
 
             <TextBlock Text="Descripcion:" Margin="10,20,10,0"/>
-            <TextBox x:Name="txtDescripcion" Margin="10,0,10,10"/>
+            <TextBox x:Name="txtDescripcion" Margin="10,0,10,0"/>
 
             <Button Content="Agregar Prodcuto" Background="AliceBlue" Click="Agregar_Click" FontWeight="Bold" FontStyle="Italic" Margin="10,20,10,10" />
 
