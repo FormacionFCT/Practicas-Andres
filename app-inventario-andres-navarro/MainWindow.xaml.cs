@@ -34,6 +34,20 @@ namespace app_inventario_andres_navarro
             this.DataContext = viewModel;
         }
 
+        // Método filtrar búsqueda
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            //Obtengo el texto del TexBox
+            string textoBusqueda = txtBusqueda.Text.ToLower();
+
+            //Filtrado
+            var productoFiltrados = viewModel.Productos.Where(emp => emp.NombreProducto.ToLower().Contains(textoBusqueda)).ToList();
+
+            //Actualizo el DataGRid
+            DataGridXAML.ItemsSource = null;
+            DataGridXAML.ItemsSource = productoFiltrados;
+        }
+
         // Crear un nuevo producto
         private void CrearProducto(object sender, RoutedEventArgs e)
         {
